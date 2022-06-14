@@ -1,5 +1,5 @@
 {
-    "name": "jan/phpunit-simulator",
+    "name": "janVee/phpunit-simulator",
     "description": "A library for phpunit",
     "type": "library",
     "license": "MIT",
