@@ -1,0 +1,21 @@
+{
+    "name": "jan/phpunit-simulator",
+    "description": "A library for phpunit",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JanVee",
+            "email": "JanVee@example.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ~8.0.0",
+        "ext-dom": "*",
+        "ext-json": "*",
+        "codeception/codeception": "^2.5",
+        "ext-curl": "*",
+        "symfony/property-access": "^3.4",
+        "symfony/serializer": "^3.4"
+    }
+}
