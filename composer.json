@@ -10,12 +10,12 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ~8.0.0",
+        "php": ">=7.2",
         "ext-dom": "*",
         "ext-json": "*",
-        "codeception/codeception": "^2.5 || ^4.1",
+        "codeception/codeception": ">=2.5",
         "ext-curl": "*",
-        "symfony/property-access": "^3.4",
-        "symfony/serializer": "^3.4"
+        "symfony/property-access": ">=2.8.52",
+        "symfony/serializer": ">=2.8.52"
     }
 }
