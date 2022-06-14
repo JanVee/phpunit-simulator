@@ -6,7 +6,7 @@
  * @Modifid By:
  */
 
-namespace test\DataProvider;
+namespace DataProvider;
 
 use Codeception\PHPUnit\TestCase;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;

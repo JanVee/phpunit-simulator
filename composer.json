@@ -17,5 +17,12 @@
         "ext-curl": "*",
         "symfony/property-access": "^2.8.52",
         "symfony/serializer": "^2.8.52"
+    },
+    "autoload":
+    {
+        "psr-0":
+        {
+            "DataProvider": "src"
+        }
     }
 }

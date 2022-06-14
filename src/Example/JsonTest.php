@@ -6,9 +6,9 @@
  * @Modifid By:
  */
 
-namespace test\Example;
+namespace Example;
 
-use test\DataProvider\BaseTestAbstract;
+use DataProvider\BaseTestAbstract;
 
 class JsonTest extends BaseTestAbstract
 {
