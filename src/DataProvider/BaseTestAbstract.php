@@ -116,7 +116,7 @@ abstract class BaseTestAbstract extends TestCase
     protected function _loadContent($className, $methodName, $fileExtension)
     {
         // 环境变量
-        $envelopment = empty(getenv('envelopment')) ? 'test' : getenv('envelopment');
+        $envelopment = empty($_ENV('ENVIRONMENT')) ? 'test' : $_ENV('ENVIRONMENT');
         $fileMethod = $this->providerDirectory . DIRECTORY_SEPARATOR . $envelopment . DIRECTORY_SEPARATOR . $className . '_' . $methodName . '.' . $fileExtension;
         $fileClassName = $this->providerDirectory . DIRECTORY_SEPARATOR . $envelopment . DIRECTORY_SEPARATOR . $className . '.' . $fileExtension;
 
