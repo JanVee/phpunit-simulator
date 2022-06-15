@@ -137,11 +137,20 @@ abstract class BaseTestAbstract extends TestCase
      * 使用curl方式发起的get请求
      *
      * @param $url
+     * @param $data
      * @param int $timeout
      * @return mixed|array
      */
-    public static function coreCurlGet($url, $timeout = 30)
+    public static function coreCurlGet($url, $data = array(), $timeout = 30)
     {
+        //组合带参数的URL
+        if (!empty($data) && is_array($data)) {
+            $amp = (strpos($url, '?') == 0) ? "?" : "&";
+            foreach ($data as $paramKey => $paramValue) {
+                $url .= $amp . $paramKey . '=' . urlencode($paramValue);
+                $amp = '&';
+            }
+        }
         $arrCurlResult = array();
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
