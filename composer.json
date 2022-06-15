@@ -18,6 +18,9 @@
         "symfony/property-access": "^2.8.52",
         "symfony/serializer": "^2.8.52"
     },
+    "require-dev": {
+        "vlucas/phpdotenv": "^5.4"
+    },
     "autoload":
     {
         "psr-0":
