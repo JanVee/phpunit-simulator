@@ -231,29 +231,4 @@ abstract class BaseTestAbstract extends TestCase
         curl_close($curl);
         return $content;
     }
-
-
-    /**
-     * 构建签名
-     * @param $a
-     * @param $p
-     * @param $k
-     * @param $u
-     * @param $r
-     * @return array
-     * @Date: Created in 5:10 下午 2022/6/21
-     */
-    public static function buildSign($a, $p, $k, $u, $r)
-    {
-        $time = time();
-        return [
-            'app'       => $a,
-            'u'         => $u,
-            'time'      => $time,
-            'sign'      => md5($k . $u . $time),
-            'data_sign' => md5($k . $u . $time . json_encode($p)),
-            'data'      => json_encode($p),
-            'nonce'     => $time . $r,
-        ];
-    }
 }
