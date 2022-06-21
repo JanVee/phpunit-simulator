@@ -139,9 +139,10 @@ abstract class BaseTestAbstract extends TestCase
      * @param $url
      * @param $data
      * @param int $timeout
+     * @param null $errorInfo
      * @return mixed|array
      */
-    public static function coreCurlGet($url, $data = array(), $timeout = 30)
+    public static function coreCurlGet($url, $data = array(), $timeout = 30, &$errorInfo = null)
     {
         //组合带参数的URL
         if (!empty($data) && is_array($data)) {
@@ -151,18 +152,22 @@ abstract class BaseTestAbstract extends TestCase
                 $amp = '&';
             }
         }
-        $arrCurlResult = array();
+
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
         $output = curl_exec($ch);
-        $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $arrCurlResult['output'] = $output;//返回结果
-        $arrCurlResult['response_code'] = $responseCode;//返回http状态
+        if ($errorInfo !== null) {
+            $errorInfo = [
+                'error_code' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
+                'error_no' => curl_errno($ch),
+                'error_message' => curl_error($ch)
+            ];
+        }
         curl_close($ch);
         unset($ch);
-        return $arrCurlResult;
+        return $output;
     }
 
 
@@ -225,5 +230,30 @@ abstract class BaseTestAbstract extends TestCase
 
         curl_close($curl);
         return $content;
+    }
+
+
+    /**
+     * 构建签名
+     * @param $a
+     * @param $p
+     * @param $k
+     * @param $u
+     * @param $r
+     * @return array
+     * @Date: Created in 5:10 下午 2022/6/21
+     */
+    public static function buildSign($a, $p, $k, $u, $r)
+    {
+        $time = time();
+        return [
+            'app'       => $a,
+            'u'         => $u,
+            'time'      => $time,
+            'sign'      => md5($k . $u . $time),
+            'data_sign' => md5($k . $u . $time . json_encode($p)),
+            'data'      => json_encode($p),
+            'nonce'     => $time . $r,
+        ];
     }
 }
