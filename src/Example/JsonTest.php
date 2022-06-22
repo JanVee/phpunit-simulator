@@ -25,6 +25,10 @@ class JsonTest extends BaseTestAbstract
     }
 
 
+    /**
+     * @dataProvider autoProvider
+     * @param $expect
+     */
     public function testMethod($expect)
     {
         $this->assertEquals('method-json', $expect);
