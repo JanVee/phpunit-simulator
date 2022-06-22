@@ -12,7 +12,7 @@ use DataProvider\BaseTestAbstract;
 
 class JsonTest extends BaseTestAbstract
 {
-    // 去掉命名空间影响
+    // 去掉命名空间影响，子类必须继续
     protected $testNamespace = __NAMESPACE__;
 
     /**
