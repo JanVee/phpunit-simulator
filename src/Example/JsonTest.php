@@ -12,6 +12,8 @@ use DataProvider\BaseTestAbstract;
 
 class JsonTest extends BaseTestAbstract
 {
+    // 去掉命名空间影响
+    protected $testNamespace = __NAMESPACE__;
 
     /**
      * @dataProvider autoProvider

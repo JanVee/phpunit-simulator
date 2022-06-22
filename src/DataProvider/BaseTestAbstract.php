@@ -18,7 +18,7 @@ abstract class BaseTestAbstract extends TestCase
 {
     protected $providerDirectory = 'tests' . DIRECTORY_SEPARATOR . 'provider';
 
-    protected $testNamespace = 'core\TestCase';
+    protected $testNamespace = __NAMESPACE__;
 
     public function autoProvider()
     {

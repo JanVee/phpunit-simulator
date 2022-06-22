@@ -16,9 +16,7 @@
         "codeception/codeception": "^4.1",
         "ext-curl": "*",
         "symfony/property-access": "^2.8.52",
-        "symfony/serializer": "^2.8.52"
-    },
-    "require-dev": {
+        "symfony/serializer": "^2.8.52",
         "vlucas/phpdotenv": "^5.4"
     },
     "autoload":
